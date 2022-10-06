@@ -12,7 +12,7 @@ server.on('connection', (socket) => {
     socket.join(room);
     socket.on('MESSAGE', (message) => {
       console.log(message);
-      socket.to(room).emit('MESSAGE','Message received');
+      socket.to(room).emit('MESSAGE', { text: 'Message received' });
     });
 
   });
