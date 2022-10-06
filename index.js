@@ -10,10 +10,10 @@ server.on('connection', (socket) => {
 
   socket.on('JOIN', (room) => {
     socket.join(room);
-    socket.on('MESSAGE', (message) => {
-      console.log(message);
-      socket.to(room).emit('MESSAGE', { text: 'Message received' });
-    });
+  });
 
+  socket.on('MESSAGE', (message) => {
+    console.log(message);
+    socket.emit('MESSAGE', { text: 'Message received' });
   });
 });
