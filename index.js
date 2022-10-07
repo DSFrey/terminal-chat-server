@@ -14,6 +14,6 @@ server.on('connection', (socket) => {
 
   socket.on('MESSAGE', (message) => {
     console.log(message);
-    socket.in(message.room).emit('MESSAGE', { text: 'Message received' });
+    server.in(message.room).emit('MESSAGE', { text: 'Message received' });
   });
 });
